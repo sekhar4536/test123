@@ -1,0 +1,13 @@
+---
+- hosts: web
+  gathering_facts: true
+  
+  tasks:
+    - name: run multiline shell command
+      shell:
+        cat /etc/redhat-release
+      register: release
+    - name: above task success
+      shell:
+        echo "success"
+      when: release.rc == 0
