@@ -1,0 +1,9 @@
+image: fedora
+
+befor_script:
+- dnf install -y python-pip wget
+- pip install ansible
+
+run_playbook:
+  script:
+  - ansible-playbook main.yml -vv
